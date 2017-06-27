@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="...">
+    <meta name="author" content="...">
+
+    <title>Shirt Store</title>
+    <link rel="shortcut icon" href="static/img/favicon.ico">
+
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://file.myfontastic.com/6AeAYiqp5KBjSiZ2tE8WJW/icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="static/css/lightbox.min.css">
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/style.blue.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <top-bar></top-bar>
+
+        <!-- Navbar -->
+        <header class="header">
+            <!-- Top Bar -->
+
+            <!-- End Top Bar -->
+
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a href="index.html" class="navbar-brand"><img src="static/img/logo-e.png" alt="Shirt Store"></a>
+                        <div class="navbar-buttons">
+                            <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i></button>
+                        </div>
+                    </div>
+                    <div id="navigation" class="collapse navbar-collapse navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="index.html">Startseite</a></li>
+                            <li>
+                                <a href="cart-page.html" class="cart">
+                                    <i class="icon-cart-1"></i>
+                                    <span class="items">4</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- End Navbar -->
+
+        <!-- Hero Section -->
+        <section class="home-hero">
+            <div class="container">
+
+                <div class="text">
+                    <div class="content">
+                        <h1>T-shirt Store</h1>
+                        <p class="hero-text">A single-product Bootstrap template.</p>
+                        <p class="hero-text"><strong>6 colour variants</strong> and <strong>{LESS} files</strong> for an easy customisation.</p>
+                        <a href=".big-product" class="buy btn btn-unique">Buy Now <i class="icon-shopping-bag"></i></a>
+                    </div>
+                </div>
+
+                <div class="image">
+                    <img src="static/img/hero-shirt.jpg" alt="t-shirt">
+                </div>
+
+            </div>
+        </section>
+        <!-- End Hero Section -->
+
+
+        <!-- Intro Section -->
+        <section class="intro">
+            <div class="container text-center">
+                <h2 class="heading-center">Welcome to the T-shirt store template</h2>
+                <p class="lead">This template is great for single product shops. It comes with <strong>3 html pages</strong>, <strong>6 colour variants</strong>                and <strong>{LESS} files</strong> to take the visual configuration even further. All fully-responsive and
+                    based on latest Bootstrap 3.3.7.</p>
+            </div>
+        </section>
+        <!-- End Intro Section -->
+
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-6 info">
+                        <h2 class="heading-left">Our Products' <br>Specialities</h2>
+                        <h3>More than just a look</h3>
+                        <p class="lead">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+                            in some form, by injected humour, or randomised words which don't look even slightly believable.
+                            If you are going to use a passage of Lorem Ipsum.</p>
+                        <a href="#" class="read-more btn btn-unique hidden-md hidden-sm hidden-xs">Read More</a>
+                    </div>
+
+                    <div class="col-md-6 items">
+                        <div class="row">
+                            <div class="col-sm-6 feature">
+                                <div class="icon">
+                                    <i class="icon-shirt-and-tie"></i>
+                                </div>
+                                <div class="text">
+                                    <h4>Unique Design</h4>
+                                    <p>Suspendisse posuere, diam in bibendum posuere, diam</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 feature">
+                                <div class="icon">
+                                    <i class="icon-shirt"></i>
+                                </div>
+                                <div class="text">
+                                    <h4>Perfect fit clothes</h4>
+                                    <p>Suspendisse posuere, diam in bibendum posuere, diam</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 feature">
+                                <div class="icon">
+                                    <i class="icon-badge"></i>
+                                </div>
+                                <div class="text">
+                                    <h4>Original Quality</h4>
+                                    <p>Suspendisse posuere, diam in bibendum posuere, diam</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 feature">
+                                <div class="icon">
+                                    <i class="icon-price-tag"></i>
+                                </div>
+                                <div class="text">
+                                    <h4>Competitive Prices</h4>
+                                    <p>Suspendisse posuere, diam in bibendum posuere, diam</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                        <a href="#" class="read-more btn btn-unique hidden-lg">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Features Section -->
+
+
+
+        <!-- Big Product Section -->
+        <section class="big-product">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 product">
+                        <img src="static/img/big-product.jpg" alt="t-shirt" class="img-responsive">
+                    </div>
+                    <div class="col-sm-8 info">
+                        <div class="info-wrapper">
+                            <h2>Beautiful Pink</h2>
+                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                                et dolore</p>
+
+                            <ul class="product-info list-unstyled">
+                                <li class="size">
+                                    <select class="item-size" title="Choose Your Size">
+                                            <option value="small">Small</option>
+                                            <option value="medium">Medium</option>
+                                            <option value="large">Large</option>
+                                            <option value="x-large">X-Large</option>
+                                        </select>
+                                </li>
+                                <li class="size">
+                                    <div class="product-quantity">
+                                        <div class="minus-btn">
+                                            <i class="icon-android-remove"></i>
+                                        </div>
+                                        <input type="text" value="1" class="quantity">
+                                        <div class="plus-btn">
+                                            <i class="icon-android-add"></i>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="price">
+                                    70.00$
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="#" class="add-to-cart btn btn-unique">add to cart <i class="icon-cart-1"></i></a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- End Big Product Section -->
+
+
+        <!-- Products Section -->
+        <section class="products">
+            <div class="container text-center">
+                <h2 class="heading-center">Our Products</h2>
+
+                <div class="owl-carousel owl-theme text-left products-slider">
+                    <div class="product">
+                        <div class="item-image">
+                            <img src="static/img/shirt-orange.jpg" class="img-responsive" alt="shirt">
+                            <div class="hover-overlay">
+                                <ul class="list-unstyled list-inline">
+                                    <li><a href="javascript: return void();" class="cart"><i class="icon-cart-1"></i></a></li>
+                                    <li><a href="javascript: return void();" class="wishlist"><i class="icon-like"></i></a></li>
+                                    <li><a href="#" class="expand" data-target="#cart-popup-1"><i class="icon-expand"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <div class="clearfix">
+                                <h5 class="pull-left">Elegant Orange</h5>
+                                <span class="price pull-right">70.00$</span>
+                            </div>
+                            <ul class="rate list-unstyled list-inline">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="product">
+                        <div class="item-image">
+                            <img src="static/img/shirt-gray.jpg" class="img-responsive" alt="shirt">
+                            <div class="hover-overlay">
+                                <ul class="list-unstyled list-inline">
+                                    <li><a href="javascript: return void();" class="cart"><i class="icon-cart-1"></i></a></li>
+                                    <li><a href="javascript: return void();" class="wishlist"><i class="icon-like"></i></a></li>
+                                    <li><a href="#" class="expand" data-target="#cart-popup-1"><i class="icon-expand"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <div class="clearfix">
+                                <h5 class="pull-left">Elegant Gray</h5>
+                                <span class="price pull-right">70.00$</span>
+                            </div>
+                            <ul class="rate list-unstyled list-inline">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="product">
+                        <div class="item-image">
+                            <img src="static/img/shirt-blue.jpg" class="img-responsive" alt="shirt">
+                            <div class="hover-overlay">
+                                <ul class="list-unstyled list-inline">
+                                    <li><a href="javascript: return void();" class="cart"><i class="icon-cart-1"></i></a></li>
+                                    <li><a href="javascript: return void();" class="wishlist"><i class="icon-like"></i></a></li>
+                                    <li><a href="#" class="expand" data-target="#cart-popup-1"><i class="icon-expand"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <div class="clearfix">
+                                <h5 class="pull-left">Elegant Blue</h5>
+                                <span class="price pull-right">70.00$</span>
+                            </div>
+                            <ul class="rate list-unstyled list-inline">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="product">
+                        <div class="item-image">
+                            <img src="static/img/shirt-black.jpg" class="img-responsive" alt="shirt">
+                            <div class="hover-overlay">
+                                <ul class="list-unstyled list-inline">
+                                    <li><a href="javascript: return void();" class="cart"><i class="icon-cart-1"></i></a></li>
+                                    <li><a href="javascript: return void();" class="wishlist"><i class="icon-like"></i></a></li>
+                                    <li><a href="#" class="expand" data-target="#cart-popup-1"><i class="icon-expand"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <div class="clearfix">
+                                <h5 class="pull-left">Elegant Black</h5>
+                                <span class="price pull-right">70.00$</span>
+                            </div>
+                            <ul class="rate list-unstyled list-inline">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="product">
+                        <div class="item-image">
+                            <img src="static/img/shirt-cyan.jpg" class="img-responsive" alt="shirt">
+                            <div class="hover-overlay">
+                                <ul class="list-unstyled list-inline">
+                                    <li><a href="javascript: return void();" class="cart"><i class="icon-cart-1"></i></a></li>
+                                    <li><a href="javascript: return void();" class="wishlist"><i class="icon-like"></i></a></li>
+                                    <li><a href="#" class="expand" data-target="#cart-popup-1"><i class="icon-expand"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <div class="clearfix">
+                                <h5 class="pull-left">Elegant Cyan</h5>
+                                <span class="price pull-right">70.00$</span>
+                            </div>
+                            <ul class="rate list-unstyled list-inline">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="product">
+                        <div class="item-image">
+                            <img src="static/img/shirt-pink.jpg" class="img-responsive" alt="shirt">
+                            <div class="hover-overlay">
+                                <ul class="list-unstyled list-inline">
+                                    <li><a href="javascript: return void();" class="cart"><i class="icon-cart-1"></i></a></li>
+                                    <li><a href="javascript: return void();" class="wishlist"><i class="icon-like"></i></a></li>
+                                    <li><a href="#" class="expand" data-target="#cart-popup-1"><i class="icon-expand"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <div class="clearfix">
+                                <h5 class="pull-left">Elegant Pink</h5>
+                                <span class="price pull-right">70.00$</span>
+                            </div>
+                            <ul class="rate list-unstyled list-inline">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="product">
+                        <div class="item-image">
+                            <img src="static/img/shirt-blue.jpg" class="img-responsive" alt="shirt">
+                            <div class="hover-overlay">
+                                <ul class="list-unstyled list-inline">
+                                    <li><a href="javascript: return void();" class="cart"><i class="icon-cart-1"></i></a></li>
+                                    <li><a href="javascript: return void();" class="wishlist"><i class="icon-like"></i></a></li>
+                                    <li><a href="#" class="expand" data-target="#cart-popup-1"><i class="icon-expand"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item-info">
+                            <div class="clearfix">
+                                <h5 class="pull-left">Elegant Blue</h5>
+                                <span class="price pull-right">70.00$</span>
+                            </div>
+                            <ul class="rate list-unstyled list-inline">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End Products Section -->
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="service">
+                            <div class="icon">
+                                <i class="icon-truck"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Advanced Shipping</h4>
+                                <p>Free shipping over 300$</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="service">
+                            <div class="icon">
+                                <i class="icon-headset"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Premium Support</h4>
+                                <p>Free shipping over 300$</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="service">
+                            <div class="icon">
+                                <i class="icon-replay-arrow"></i>
+                            </div>
+                            <div class="text">
+                                <h4>30 Day Return</h4>
+                                <p>Free shipping over 300$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Services Section -->
+
+        <!-- Contact Section -->
+        <section class="contact">
+            <div class="container text-center">
+                <h2 class="heading-center">Contact Us</h2>
+                <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+                <div class="row">
+                    <div class="form-holder col-md-10 col-md-offset-1">
+                        <form id="contact-form" action="#" method="post">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="username">Your Name</label>
+                                    <input type="text" name="username" id="username" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="email">Your Email</label>
+                                    <input type="email" name="email" id="email" required>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="message">How can we help you?</label>
+                                    <textarea name="message" id="message" required></textarea>
+                                </div>
+                                <div class="col-sm-12 text-right submit-holder">
+                                    <button type="submit">Send <i class="fa fa-circle"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Contact Section -->
+
+
+        <!-- Footer -->
+        <footer>
+            <div class="copyrights">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>&copy; 2017 ShirtStore.com. All rights reserved.</p>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <p>Template By <a href="https://ondrejsvestka.cz/" target="_blank">Ondrej Svestka</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+
+        <!-- Cart Popup -->
+        <div class="cart-popup-overlay" id="cart-popup-1">
+            <div class="cart-popup">
+                <div class="container">
+                    <div class="close-btn">
+                        <i class="icon-close"></i>
+                    </div>
+
+                    <div class="logo">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="img/logo-e.png" alt="Shirt Store" class="center-block">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-10 col-lg-push-1 col-md-12">
+                                <div class="row">
+                                    <div class="item-profile col-sm-4">
+                                        <img src="img/f-shirt-cyan.jpg" alt="t-shirt" class="img-responsive">
+
+                                        <div class="labels">
+                                            <span class="new">NEW</span>
+                                            <span class="sale">SALE</span>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="item-info col-sm-8">
+                                        <div class="item-info-wrapper">
+                                            <h2 class="text-primary">Elegant Cyan</h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem libero ullam assumenda
+                                                consequuntur illum reiciendis aliquid. Quaerat perspiciatis fugiat rerum, labore,
+                                                voluptates.
+                                            </p>
+
+                                            <ul class="product-info list-unstyled">
+                                                <li class="size">
+                                                    <select class="item-size" title="Choose Your Size">
+                                                            <option value="small">Small</option>
+                                                            <option value="medium">Medium</option>
+                                                            <option value="large">Large</option>
+                                                            <option value="x-large">X-Large</option>
+                                                        </select>
+                                                </li>
+                                                <li>
+                                                    <div class="product-quantity">
+                                                        <div class="minus-btn">
+                                                            <i class="icon-android-remove"></i>
+                                                        </div>
+                                                        <input type="text" value="1" class="quantity">
+                                                        <div class="plus-btn">
+                                                            <i class="icon-android-add"></i>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="price">
+                                                    40.00$
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <a href="#" class="add-to-cart btn btn-unique">add to cart <i class="icon-cart-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Cart Popup -->
+
+
+        <!-- End scroll to top button -->
+        <div id="scrollTop">
+            <i class="fa fa-angle-up"></i>
+        </div>
+        <!-- End scroll to top button -->
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/bootstrap-select.min.js"></script>
+    <script src="static/js/owl.carousel.min.js"></script>
+    <script src="static/js/lightbox.min.js"></script>
+    <script src="static/js/jquery.validate.min.js"></script>
+    <script src="static/js/smooth.scroll.min.js"></script>
+    <script src="static/js/jquery.cookie.js"></script>
+    <script src="static/js/script.js"></script>
+</body>
+
+</html>
