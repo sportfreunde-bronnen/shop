@@ -17,19 +17,11 @@
                             <li class="size" v-if="hasVariants()">
                                 <variant v-bind:variants="data.variants" v-on:variantChanged="variantHasChanged"></variant>
                             </li>
-                            <li class="size">
-                                <div class="product-quantity">
-                                    <div class="minus-btn">
-                                        <i class="icon-android-remove"></i>
-                                    </div>
-                                    <input type="text" value="1" class="quantity">
-                                    <div class="plus-btn">
-                                        <i class="icon-android-add"></i>
-                                    </div>
-                                </div>
+                            <li class="amount">
+                                <amount v-on:amountChanged="amountHasChanged"></amount>
                             </li>
                             <li class="price">
-                                {{ price }}
+                                {{ outputPrice }}
                             </li>
                         </ul>
                     </div>
@@ -43,16 +35,20 @@
 <script>
 
   import Variant from './Variant';
+  import Amount from './Amount';
 
   export default {
     components: {
       variant: Variant,
+      amount: Amount,
     },
     name: 'Product',
     data() {
       return {
-        price: 0,
-        variant: '',
+        price: this.data.basePrice,
+        amount: 1,
+        variant: {},
+        basePrice: this.data.basePrice,
       };
     },
     props: {
@@ -65,9 +61,26 @@
       hasVariants() {
         return (this.data.variants.length > 1);
       },
-      variantHasChanged(test) {
+      variantHasChanged(variant) {
+        this.variant = variant;
+        this.calculatePrice();
+      },
+      amountHasChanged(amount) {
+        this.amount = amount;
+        this.calculatePrice();
+      },
+      calculatePrice() {
         // eslint-disable-next-line
-        console.log(test);
+        if (this.variant.variant === undefined) {
+          this.price = this.data.basePrice * this.amount;
+        } else {
+          this.price = this.variant.variant.price * this.amount;
+        }
+      },
+    },
+    computed: {
+      outputPrice() {
+        return `${this.price} €`;
       },
     },
   };
