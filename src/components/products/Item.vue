@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 product">
-                    <img src="static/images/Bierkrug_Frontansicht.jpg" alt="t-shirt" class="img-responsive">
+                    <img v-if="hasImages()" :src="data.images[0].name" alt="t-shirt" class="img-responsive">
                 </div>
                 <div class="col-sm-8 info">
                     <div class="info-wrapper">
@@ -13,13 +13,9 @@
                         </p>
 
                         <ul class="product-info list-unstyled">
-                            <li class="size">
-                                <select class="item-size" title="Choose Your Size">
-                                    <option value="small">Small</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="large">Large</option>
-                                    <option value="x-large">X-Large</option>
-                                </select>
+
+                            <li class="size" v-if="hasVariants()">
+                                <variant v-bind:variants="data.variants" v-on:variantChanged="variantHasChanged"></variant>
                             </li>
                             <li class="size">
                                 <div class="product-quantity">
@@ -33,11 +29,11 @@
                                 </div>
                             </li>
                             <li class="price">
-                                70.00$
+                                {{ price }}
                             </li>
                         </ul>
                     </div>
-                    <a href="#" class="add-to-cart btn btn-unique">add to cart <i class="icon-cart-1"></i></a>
+                    <a href="#" class="add-to-cart btn btn-unique">Zum Warenkorb hinzufügen <i class="icon-cart-1"></i></a>
                 </div>
             </div>
         </div>
@@ -45,14 +41,34 @@
 </template>
 
 <script>
+
+  import Variant from './Variant';
+
   export default {
+    components: {
+      variant: Variant,
+    },
     name: 'Product',
     data() {
       return {
+        price: 0,
+        variant: '',
       };
     },
     props: {
       data: {},
+    },
+    methods: {
+      hasImages() {
+        return (this.data.images.length > 0);
+      },
+      hasVariants() {
+        return (this.data.variants.length > 1);
+      },
+      variantHasChanged(test) {
+        // eslint-disable-next-line
+        console.log(test);
+      },
     },
   };
 </script>

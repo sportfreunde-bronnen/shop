@@ -7,7 +7,7 @@
         <div class="text">
           <div class="content">
             <h1>Vereinsartikel</h1>
-            <p class="hero-text">der Sportfreunde Bronnen 1949 e.V. <strong>schnell, sicher und einfach</strong> bestellen.</p>
+            <p class="hero-text">der Sportfreunde Bronnen 1949 e.V. <strong>einfach, schnell und sicher</strong> bestellen.</p>
           </div>
         </div>
 

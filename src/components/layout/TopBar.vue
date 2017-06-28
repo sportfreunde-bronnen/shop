@@ -3,10 +3,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 text-left">
-                    <p>Merchandising Shop der Sportfreunde Bronnen</p>
+                    <p>Shop für Vereinsartikel der Sportfreunde Bronnen</p>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <p>Fragen? merchandise@sf-bronnen.de</p>
+                    <p>Fragen? shop@sf-bronnen.de</p>
                 </div>
             </div>
         </div>
