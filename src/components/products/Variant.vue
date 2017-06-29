@@ -1,27 +1,35 @@
 <template>
     <div class="variant-selector">
-        <select class="item-size" v-model="selected" v-on:change="changeVariant">
-            <option v-for="variant in variants" v-bind:value="{ variant }">{{ variant.name }}</option>
-        </select>
+        <v-select :on-change="changeVariant" :options="variants"></v-select>
     </div>
 </template>
 
 <script>
+  import vSelect from 'vue-select';
+
   export default {
+    components: { vSelect },
     name: 'Variant',
     data() {
-      return {
-        selected: '',
-      };
+      return {};
     },
     props: {
       variants: {},
     },
     methods: {
-      changeVariant() {
+      changeVariant(selected) {
         // eslint-disable-next-line
-        this.$emit('variantChanged', this.selected);
+        this.$emit('variantChanged', this.variants[selected.value]);
       },
+    },
+    created() {
+      this.variants.forEach(
+        (itm, k) => {
+          // eslint-disable-next-line
+          itm.label = itm.name;
+          // eslint-disable-next-line
+          itm.value = k;
+        });
     },
   };
 </script>

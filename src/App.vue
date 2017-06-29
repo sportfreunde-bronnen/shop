@@ -39,6 +39,19 @@
   export default {
     components: { TopBar, PageHeader },
     name: 'app',
+    created() {
+      // eslint-disable-next-line
+      let cartKey = this.$localStorage.get('cartKey');
+      if (cartKey === null) {
+        // eslint-disable-next-line
+        this.$http.post('/api/cart', {}).then((response) => {
+          this.$localStorage.set('cartKey', response.body.key);
+        }, (response) => {
+          // eslint-disable-next-line
+          console.log('FEHLER AUFGETRETEN', response);
+        });
+      }
+    },
   };
 </script>
 

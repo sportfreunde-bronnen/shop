@@ -25,7 +25,8 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="#" class="add-to-cart btn btn-unique">Zum Warenkorb hinzufügen <i class="icon-cart-1"></i></a>
+                    <a v-if="!loading" v-on:click.prevent="addToCart" class="add-to-cart btn btn-unique">Zum Warenkorb hinzufügen <i class="icon-cart-1"></i></a>
+                    <a v-if="loading" href="#" class="add-to-cart btn btn-unique">Einen Moment bitte.. <i class="icon-cart-1"></i></a>
                 </div>
             </div>
         </div>
@@ -47,8 +48,9 @@
       return {
         price: this.data.basePrice,
         amount: 1,
-        variant: {},
+        variant: null,
         basePrice: this.data.basePrice,
+        loading: false,
       };
     },
     props: {
@@ -62,6 +64,7 @@
         return (this.data.variants.length > 1);
       },
       variantHasChanged(variant) {
+        // eslint-disable-next-line
         this.variant = variant;
         this.calculatePrice();
       },
@@ -70,17 +73,40 @@
         this.calculatePrice();
       },
       calculatePrice() {
-        // eslint-disable-next-line
-        if (this.variant.variant === undefined) {
-          this.price = this.data.basePrice * this.amount;
+        if (this.variant === null) {
+          this.price = this.basePrice;
         } else {
-          this.price = this.variant.variant.price * this.amount;
+          this.price = this.variant.price;
         }
+      },
+      addToCart() {
+        // eslint-disable-next-line
+        this.loading = true;
+        const postData = {
+          productId: this.data.id,
+          amount: this.amount,
+          price: this.price,
+          variant: this.variant,
+        };
+        // eslint-disable-next-line
+        this.$http.post(`/api/cart/${this.cartKey}`, postData).then((response) => {
+          this.loading = false;
+        }, (response) => {
+          // eslint-disable-next-line
+          console.log(response);
+          this.loading = false;
+        });
       },
     },
     computed: {
+      totalPrice() {
+        return parseFloat(this.price * this.amount).toFixed(2);
+      },
       outputPrice() {
-        return `${this.price} €`;
+        return `${this.totalPrice} €`;
+      },
+      cartKey() {
+        return this.$localStorage.get('cartKey');
       },
     },
   };
