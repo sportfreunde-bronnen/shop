@@ -1,7 +1,7 @@
 SetEnvIf Host shop\.sf-bronnen\.de require_auth=true
 
 # Auth stuff
-AuthUserFile /kunden/417691_80796/sfb/api.sf-bronnen.de/htpasswd
+AuthUserFile /kunden/417691_80796/sfb/shop.sf-bronnen.de/htpasswd
 AuthName "Login"
 AuthType Basic
 
