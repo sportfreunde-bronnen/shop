@@ -88,10 +88,10 @@
           price: this.price,
           variant: this.variant,
         };
-        this.$store.commit('increment', this.amount);
         // eslint-disable-next-line
         this.$http.post(`/api/cart/${this.cartKey}`, postData).then((response) => {
           this.loading = false;
+          this.$store.commit('increment', this.amount);
         }, (response) => {
           // eslint-disable-next-line
           console.log(response);

@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="cart-body">
-                        <cart-item v-for="item in cart.items" :key="item.id" v-bind:data="item" ref="cartItem"></cart-item>
+                        <cart-item v-on:productDeleted="productDeleted" v-for="item in cart.items" :key="item.id" v-bind:data="item" ref="cartItem"></cart-item>
                     </div>
                 </div>
             </div>
@@ -36,6 +36,15 @@
                 </div>
             </div>
         </section>
+
+        <section v-if="!this.hasItems()">
+            <div class="container">
+                <div class="col-xs-12">
+                    Ihr Warenkorb ist leer.
+                </div>
+            </div>
+        </section>
+
         <!-- End Cart section -->
 
     </div>
@@ -58,16 +67,32 @@
       console.log("SICHER");
     },
     mounted() {
-      this.$http.get(`/api/cart/${this.cartKey}`).then((response) => {
-        this.cart = response.body;
-        this.loading = false;
-      }, (response) => {
-        // eslint-disable-next-line
-        console.log('FEHLER AUFGETRETEN', response);
-        this.loading = false;
-      });
+      this.getItems();
     },
     methods: {
+      productDeleted(cartItem) {
+        this.$http.delete(`/api/cart/item/${this.cartKey}/${cartItem.id}`).then((response) => {
+          if (response) {
+            this.getItems();
+          }
+        }, (error) => {
+          if (error) {
+            return false;
+          }
+          return false;
+        });
+      },
+      getItems() {
+        this.$http.get(`/api/cart/${this.cartKey}`).then((response) => {
+          this.cart = response.body;
+          this.loading = false;
+          this.calculateItemCount();
+        }, (error) => {
+          if (error) {
+            this.loading = false;
+          }
+        });
+      },
       hasItems() {
         if (this.cart.items === undefined) {
           return false;
@@ -82,6 +107,14 @@
         }
         // eslint-disable-next-line
         return totalAmount.toFixed(2);
+      },
+      calculateItemCount() {
+        let amount = 0;
+        // eslint-disable-next-line
+        for (let item of this.cart.items) {
+          amount += parseInt(item.amount, 10);
+        }
+        this.$store.commit('initial', amount);
       },
     },
     computed: {

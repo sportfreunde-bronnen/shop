@@ -525,7 +525,7 @@ section.home-hero.is-fixed {
 }
 section.home-hero .container {
   position: relative;
-  min-height: calc(100vh - 160px);
+  min-height: 400px;
 }
 section.home-hero .text {
   position: absolute;
@@ -2436,9 +2436,8 @@ fieldset[disabled] .btn-unique.active {
 .btn-unique:focus,
 .btn-unique:active,
 .btn-unique.active {
-  background: #f73859;
+  background: #0630A0;
   color: #ffffff;
-  border: solid 1px #f73859;
 }
 .btn-unique.btn {
   padding: 6px 40px;
@@ -2811,4 +2810,8 @@ a.list-group-item.active > .badge,
 }
 .nav-pills > li > a > .badge {
   margin-left: 3px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
