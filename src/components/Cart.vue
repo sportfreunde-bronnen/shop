@@ -4,13 +4,12 @@
         <section class="hero">
             <div class="container">
                 <h1>Ihr Warenkorb</h1>
-                <p class="lead">Viel Spaß!</p>
             </div>
         </section>
         <!-- End Hero section -->
 
         <!-- Cart section -->
-        <section class="cart">
+        <section class="cart" v-if="this.hasItems()">
             <div class="container">
                 <div class="text-center" v-if="loading">
                     <h3>Produkte werden geladen. Bitte einen Moment Geduld.</h3>
@@ -26,47 +25,14 @@
                     </div>
 
                     <div class="cart-body">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="product-overview clearfix">
-                                    <div class="product-img pull-left">
-                                        <img src="img/hero-shirt.jpg" alt="t-shirt" class="img-responsive">
-                                    </div>
-                                    <div class="product-details pull-left">
-                                        <h3>Elegant Gray</h3>
-                                        <p>X-Large</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-2">
-                                <h3>70.00$</h3>
-                            </div>
-
-                            <div class="col-xs-2">
-                                <div class="product-quantity">
-                                    <div class="minus-btn">
-                                        <i class="icon-android-remove"></i>
-                                    </div>
-                                    <input type="text" value="1" class="quantity">
-                                    <div class="plus-btn">
-                                        <i class="icon-android-add"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-2">
-                                <h3>70.00$</h3>
-                            </div>
-                        </div>
+                        <cart-item v-for="item in cart.items" :key="item.id" v-bind:data="item" ref="cartItem"></cart-item>
                     </div>
                 </div>
             </div>
 
             <div class="total-price text-right">
                 <div class="container">
-                    <h3>Total:</h3>
-                    <h2 class="text-primary">70.00$</h2>
+                    <h2 class="text-primary">Gesamt: {{ calculateTotalAmount() }} €</h2>
                 </div>
             </div>
         </section>
@@ -76,7 +42,10 @@
 </template>
 
 <script>
+  import CartItem from './CartItem';
+
   export default {
+    components: { CartItem },
     name: 'CartPage',
     data() {
       return {
@@ -84,7 +53,11 @@
         loading: true,
       };
     },
-    created() {
+    beforeCreate() {
+      // eslint-disable-next-line
+      console.log("SICHER");
+    },
+    mounted() {
       this.$http.get(`/api/cart/${this.cartKey}`).then((response) => {
         this.cart = response.body;
         this.loading = false;
@@ -93,6 +66,23 @@
         console.log('FEHLER AUFGETRETEN', response);
         this.loading = false;
       });
+    },
+    methods: {
+      hasItems() {
+        if (this.cart.items === undefined) {
+          return false;
+        }
+        return (this.cart.items.length > 0);
+      },
+      calculateTotalAmount() {
+        let totalAmount = 0.00;
+        // eslint-disable-next-line
+        for (let item of this.cart.items) {
+          totalAmount += (item.price * item.amount);
+        }
+        // eslint-disable-next-line
+        return totalAmount.toFixed(2);
+      },
     },
     computed: {
       cartKey() {

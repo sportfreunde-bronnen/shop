@@ -34,38 +34,13 @@
     <section class="services">
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-12">
             <div class="service">
               <div class="icon">
-                <i class="icon-truck"></i>
+                <i class="icon-prev"></i>
               </div>
               <div class="text">
-                <h4>Advanced Shipping</h4>
-                <p>Free shipping over 300$</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="service">
-              <div class="icon">
-                <i class="icon-headset"></i>
-              </div>
-              <div class="text">
-                <h4>Premium Support</h4>
-                <p>Free shipping over 300$</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="service">
-              <div class="icon">
-                <i class="icon-replay-arrow"></i>
-              </div>
-              <div class="text">
-                <h4>30 Day Return</h4>
-                <p>Free shipping over 300$</p>
+                <h4>#nurdiesfb</h4>
               </div>
             </div>
           </div>
@@ -77,32 +52,11 @@
     <!-- Contact Section -->
     <section class="contact">
       <div class="container text-center">
-        <h2 class="heading-center">Contact Us</h2>
-        <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-
-        <div class="row">
-          <div class="form-holder col-md-10 col-md-offset-1">
-            <form id="contact-form" action="#" method="post">
-              <div class="row">
-                <div class="col-sm-6">
-                  <label for="username">Your Name</label>
-                  <input type="text" name="username" id="username" required>
-                </div>
-                <div class="col-sm-6">
-                  <label for="email">Your Email</label>
-                  <input type="email" name="email" id="email" required>
-                </div>
-                <div class="col-sm-12">
-                  <label for="message">How can we help you?</label>
-                  <textarea name="message" id="message" required></textarea>
-                </div>
-                <div class="col-sm-12 text-right submit-holder">
-                  <button type="submit">Send <i class="fa fa-circle"></i></button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+        <h2 class="heading-center">Kontaktmöglichkeiten</h2>
+        <p class="lead">
+          Bei Fragen zum Shop, Wünschen nach neuen Artikeln und allen weiteren Anfragen nutzen Sie bitte
+          die E-Mail Adresse <strong>shop@sf-bronnen.de</strong>.
+        </p>
       </div>
     </section>
   </div>

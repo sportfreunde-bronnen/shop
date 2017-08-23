@@ -22,7 +22,7 @@
                         <li>
                             <router-link :to="{ name: 'shoppingcart' }" class="cart">
                                 <i class="icon-cart-1"></i>
-                                <span class="items">{{ cartItems }}</span>
+                                <span class="items">{{ cartCount }}</span>
                             </router-link>
                         </li>
                     </ul>
@@ -35,10 +35,26 @@
 <script>
   export default {
     name: 'PageHeader',
-    data() {
-      return {
-        cartItems: 2,
-      };
+    computed: {
+      cartCount() {
+        return this.$store.state.count;
+      },
+      cartKey() {
+        return this.$localStorage.get('cartKey');
+      },
+    },
+    mounted() {
+      if (this.cartKey === null) {
+        return;
+      }
+      this.$http.get(`/api/cart/itemcount/${this.cartKey}`).then((response) => {
+        // eslint-disable-next-line
+        this.$store.commit('initial', response.body.amount);
+      }, (response) => {
+        // eslint-disable-next-line
+        console.log('FEHLER AUFGETRETEN', response);
+        this.loading = false;
+      });
     },
   };
 </script>

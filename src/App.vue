@@ -13,10 +13,10 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-6">
-              <p>&copy; 2017 ShirtStore.com. All rights reserved.</p>
+              <p>&copy; 2017 Sportfreunde Bronnen 1949 e.V.</p>
             </div>
             <div class="col-sm-6 text-right">
-              <p>Template By <a href="https://ondrejsvestka.cz/" target="_blank">Ondrej Svestka</a></p>
+              Made with <3 in Laupheim
             </div>
           </div>
         </div>
@@ -24,11 +24,6 @@
     </footer>
     <!-- End Footer -->
 
-    <!-- End scroll to top button -->
-    <div id="scrollTop">
-      <i class="fa fa-angle-up"></i>
-    </div>
-    <!-- End scroll to top button -->
   </div>
 </template>
 
@@ -40,17 +35,24 @@
     components: { TopBar, PageHeader },
     name: 'app',
     created() {
-      // eslint-disable-next-line
-      let cartKey = this.$localStorage.get('cartKey');
-      if (cartKey === null) {
-        // eslint-disable-next-line
-        this.$http.post('/api/cart', {}).then((response) => {
-          this.$localStorage.set('cartKey', response.body.key);
-        }, (response) => {
+      this.cartKeyHandling();
+    },
+    updated() {
+      this.cartKeyHandling();
+    },
+    methods: {
+      cartKeyHandling() {
+        const cartKey = this.$localStorage.get('cartKey');
+        if (cartKey === null) {
           // eslint-disable-next-line
-          console.log('FEHLER AUFGETRETEN', response);
-        });
-      }
+          this.$http.post('/api/cart', {}).then((response) => {
+            this.$localStorage.set('cartKey', response.body.key);
+          }, (response) => {
+            // eslint-disable-next-line
+            console.log('FEHLER AUFGETRETEN', response);
+          });
+        }
+      },
     },
   };
 </script>

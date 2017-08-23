@@ -25,7 +25,7 @@
                             </li>
                         </ul>
                     </div>
-                    <a v-if="!loading" v-on:click.prevent="addToCart" class="add-to-cart btn btn-unique">Zum Warenkorb hinzufügen <i class="icon-cart-1"></i></a>
+                    <a v-if="!loading" v-on:click.prevent="addToCart" class="add-to-cart btn btn-unique">In den Warenkorb <i class="icon-cart-1"></i></a>
                     <a v-if="loading" href="#" class="add-to-cart btn btn-unique">Einen Moment bitte.. <i class="icon-cart-1"></i></a>
                 </div>
             </div>
@@ -88,6 +88,7 @@
           price: this.price,
           variant: this.variant,
         };
+        this.$store.commit('increment', this.amount);
         // eslint-disable-next-line
         this.$http.post(`/api/cart/${this.cartKey}`, postData).then((response) => {
           this.loading = false;

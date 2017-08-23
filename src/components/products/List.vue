@@ -25,11 +25,13 @@
     created() {
       this.loading = true;
       this.$http.get('/api/product').then((response) => {
+        // eslint-disable-next-line
         this.products = response.body;
         this.loading = false;
-      }, (response) => {
-        // eslint-disable-next-line
-        console.log('FEHLER AUFGETRETEN', response);
+      }, (error) => {
+        if (error) {
+          alert('Es ist ein Fehler aufgetreten!');
+        }
         this.loading = false;
       });
     },
