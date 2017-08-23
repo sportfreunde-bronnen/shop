@@ -24,6 +24,7 @@
           Im Folgenden erhalten Sie eine Auswahl der verfügbaren Vereinsartikel. Nach Auswahl der entsprechenden Größe (falls vorhanden)
           genügt ein Klick auf "In den Warenkorb", um das Produkt Ihrem Warenkorb hinzuzufügen.
         </p>
+        <product-filter></product-filter>
       </div>
     </section>
     <!-- End Intro Section -->
@@ -64,9 +65,12 @@
 
 <script>
   import ProductList from './products/List';
+  import ProductFilter from './products/Filter';
 
   export default {
-    components: { ProductList },
+    components: {
+      ProductFilter,
+      ProductList },
     name: 'index',
     data() {
       return {};

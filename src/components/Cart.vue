@@ -17,10 +17,10 @@
                 <div class="cart-holder" v-if="!loading">
                     <div class="cart-heading">
                         <div class="row">
-                            <div class="col-xs-6">Product</div>
-                            <div class="col-xs-2">Price</div>
-                            <div class="col-xs-2">Quantity</div>
-                            <div class="col-xs-2">Total</div>
+                            <div class="col-xs-6">Artikel</div>
+                            <div class="col-xs-2">Preis</div>
+                            <div class="col-xs-2">Anzahl</div>
+                            <div class="col-xs-2">Betrag</div>
                         </div>
                     </div>
 
@@ -33,6 +33,16 @@
             <div class="total-price text-right">
                 <div class="container">
                     <h2 class="text-primary">Gesamt: {{ calculateTotalAmount() }} €</h2>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-right">
+                        <hr/>
+                        <button class="btn btn-primary">Weiter zur Eingabe Ihrer Daten</button>
+                        <hr/>
+                    </div>
                 </div>
             </div>
         </section>
@@ -63,8 +73,6 @@
       };
     },
     beforeCreate() {
-      // eslint-disable-next-line
-      console.log("SICHER");
     },
     mounted() {
       this.getItems();

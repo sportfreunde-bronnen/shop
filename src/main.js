@@ -22,6 +22,7 @@ Vue.http.interceptors.push((request, next) => {
 const store = new Vuex.Store({
   state: {
     count: 0,
+    categoryFilter: 0,
   },
   mutations: {
     increment(state, n) {
@@ -29,6 +30,9 @@ const store = new Vuex.Store({
     },
     initial(state, n) {
       state.count = n;  // eslint-disable-line no-param-reassign
+    },
+    filterCategory(state, n) {
+      state.categoryFilter = n;  // eslint-disable-line no-param-reassign
     },
   },
 });

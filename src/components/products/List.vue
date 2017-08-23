@@ -20,20 +20,40 @@
       return {
         products: [],
         loading: false,
+        currentCategory: 0,
       };
     },
     created() {
-      this.loading = true;
-      this.$http.get('/api/product').then((response) => {
-        // eslint-disable-next-line
-        this.products = response.body;
-        this.loading = false;
-      }, (error) => {
-        if (error) {
-          alert('Es ist ein Fehler aufgetreten!');
+      this.getProducts(0);
+      const vthis = this;
+      this.$store.subscribe((mutation) => {
+        if (mutation.type === 'filterCategory' && mutation.payload !== vthis.currentCategory) {
+          this.getProducts(mutation.payload);
+          vthis.currentCategory = mutation.payload;
         }
-        this.loading = false;
       });
+    },
+    methods: {
+      getProducts(category = 0) {
+        this.loading = true;
+        let url = '';
+        if (category > 0) {
+          url = `/api/product?category=${category}`;
+        } else {
+          url = '/api/product';
+        }
+        this.$http.get(url).then((response) => {
+          // eslint-disable-next-line
+          this.products = response.body;
+          this.loading = false;
+        }, (error) => {
+          if (error) {
+            // eslint-disable-next-line
+            alert('Es ist ein Fehler aufgetreten!');
+          }
+          this.loading = false;
+        });
+      },
     },
   };
 </script>

@@ -8,7 +8,6 @@
             <div class="container">
                 <div class="navbar-header">
                     <router-link :to="{ name: 'index' }" class="navbar-brand">
-                        <img class="sfb-logo" src="../../assets/img/logo_sfb.png" alt="SFB Merchandising">
                     </router-link>
                     <div class="navbar-buttons">
                         <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i></button>
@@ -16,7 +15,10 @@
                 </div>
                 <div id="navigation" class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active">
+                        <li class="sfb">
+                            <router-link :to="{ name: 'index' }">Sportfreunde Bronnen 1949 e.V.</router-link>
+                        </li>
+                        <li class="">
                             <router-link :to="{ name: 'index' }">Startseite</router-link>
                         </li>
                         <li>
