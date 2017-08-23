@@ -1,2 +1,9 @@
 RewriteEngine On
+
+# DEV
+RewriteCond %{HTTP_HOST} ^dev.sfbshop$
 RewriteRule ^api/(.*) http://sfb.api/$1 [NC,P]
+
+# PRODUCTION
+RewriteCond %{HTTP_HOST} ^shop.sf-bronnen.de$
+RewriteRule ^api/(.*) http://api.sf-bronnen.de/$1 [NC,P]
