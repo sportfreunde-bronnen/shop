@@ -1,3 +1,18 @@
+SetEnvIf Host shop\.sf-bronnen\.de require_auth=true
+
+# Auth stuff
+AuthUserFile /kunden/417691_80796/sfb/api.sf-bronnen.de/htpasswd
+AuthName "Login"
+AuthType Basic
+
+# Setup a deny/allow
+Order Deny,Allow
+Deny from all
+# except if either of these are satisfied
+Satisfy any
+Require valid-user
+Allow from env=!require_auth
+
 RewriteEngine On
 
 # DEV
