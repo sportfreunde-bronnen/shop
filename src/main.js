@@ -4,6 +4,7 @@ import Vue from 'vue';
 import VueResource from 'vue-resource';
 import VueLocalStorage from 'vue-localstorage';
 import Vuex from 'vuex';
+import VeeValidate from 'vee-validate';
 import App from './App';
 import router from './router';
 
@@ -12,6 +13,9 @@ Vue.config.productionTip = false;
 Vue.use(Vuex);
 Vue.use(VueResource);
 Vue.use(VueLocalStorage);
+Vue.use(VeeValidate, {
+  initial: true,
+});
 
 Vue.http.interceptors.push((request, next) => {
   request.headers.set('Content-Type', 'application/json');

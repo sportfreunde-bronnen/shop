@@ -36,15 +36,6 @@
                 </div>
             </div>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 text-right">
-                        <hr/>
-                        <button class="btn btn-primary">Weiter zur Eingabe Ihrer Daten</button>
-                        <hr/>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <section v-if="!this.hasItems()">
@@ -55,6 +46,89 @@
             </div>
         </section>
 
+        <section class="shipping" v-if="this.hasItems()">
+
+            <div class="container">
+
+                <div class="form-holder">
+                    <div class="shipping-main">
+                        <h3>Rechnungsadresse</h3>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="alert alert-danger" v-if="showErrorMessage">
+                                    Bitte vervollständige die rot umrandeten Angaben.
+                                </div>
+                            </div>
+                            <div class="col-sm-6" v-bind:class="{ 'has-error': errors.has('firstname') }">
+                                <input type="text" name="firstname" class="form-control" placeholder="Vorname" v-model="user.firstname" v-validate="'required'" aria-required="true">
+                            </div>
+                            <div class="col-sm-6" v-bind:class="{ 'has-error': errors.has('lastname') }">
+                                <input type="text" name="lastname" class="form-control" placeholder="Nachname" v-model="user.lastname" v-validate="'required'" required="required" aria-required="true">
+                            </div>
+                            <div class="col-sm-6" v-bind:class="{ 'has-error': errors.has('email') }">
+                                <input type="email" name="email" class="form-control" placeholder="E-Mail Addresse" v-model="user.email" v-validate="'required|email'" required="required" aria-required="true">
+                            </div>
+                            <div class="col-sm-6" v-bind:class="{ 'has-error': errors.has('phone') }">
+                                <input type="text" name="phone" class="form-control" placeholder="Telefon (für Rückfragen)" v-model="user.phone" v-validate="'required'" required="" aria-required="true">
+                            </div>
+                            <div class="col-sm-6" v-bind:class="{ 'has-error': errors.has('street') }">
+                                <input type="text" name="street" class="form-control" placeholder="Straße/Hausnummer" v-model="user.street" v-validate="'required'" required="" aria-required="true">
+                            </div>
+                            <div class="col-sm-2" v-bind:class="{ 'has-error': errors.has('zip') }">
+                                <input type="text" name="zip" class="form-control" placeholder="PLZ" maxlength="5" v-model="user.zipcode" v-validate="'required'" required="" aria-required="true">
+                            </div>
+                            <div class="col-sm-4" v-bind:class="{ 'has-error': errors.has('city') }">
+                                <input type="text" name="city" class="form-control" placeholder="Ort" v-model="user.city" v-validate="'required'" required="" aria-required="true">
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="checkbox" id="another-address" v-model="user.variantDelivery">
+                                <label for="another-address">Abweichende Lieferadresse?</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <transition name="fade">
+                        <div v-if="this.variantDeliveryAddressNeeded" class="shipping-alternative">
+                            <h3>Lieferadresse</h3>
+                            <div class="row">
+                                <div class="col-sm-6" v-bind:class="{ 'has-error': errors.has('delivery-firstname') }">
+                                    <input type="text" name="delivery-firstname" class="form-control" placeholder="Vorname" v-validate="`${user.variantDelivery ? 'required' : ''}`" v-model="user.delivery.firstname" required="required" aria-required="true">
+                                </div>
+                                <div class="col-sm-6" v-bind:class="{ 'has-error': errors.has('delivery-lastname') }">
+                                    <input type="text" name="delivery-lastname" class="form-control" placeholder="Nachname" v-validate="`${user.variantDelivery ? 'required' : ''}`" v-model="user.delivery.lastname" required="required" aria-required="true">
+                                </div>
+                                <div class="col-sm-6" v-bind:class="{ 'has-error': errors.has('delivery-street') }">
+                                    <input type="text" name="delivery-street" class="form-control" placeholder="Straße/Hausnummer" v-validate="`${user.variantDelivery ? 'required' : ''}`" v-model="user.delivery.street" required="" aria-required="true">
+                                </div>
+                                <div class="col-sm-2" v-bind:class="{ 'has-error': errors.has('delivery-zip') }">
+                                    <input type="text" name="delivery-zip" class="form-control" placeholder="PLZ" maxlength="5" v-validate="`${user.variantDelivery ? 'required' : ''}`" v-model="user.delivery.zipcode" required="" aria-required="true">
+                                </div>
+                                <div class="col-sm-4" v-bind:class="{ 'has-error': errors.has('delivery-city') }">
+                                    <input type="text" name="delivery-city" class="form-control" placeholder="Ort" v-model="user.delivery.city" v-validate="`${user.variantDelivery ? 'required' : ''}`" required="" aria-required="true">
+                                </div>
+                            </div>
+                        </div>
+                    </transition>
+
+                    <div class="payment-method">
+                        <hr/>
+                        <h3>Bezahlung</h3>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                Die Bezahlung erfolgt per Vorkasse. Hierzu erhalten Sie im Anschluss an Ihre eine E-Mail mit der Kontoverbindung.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="submit" class="oder-now btn btn-unique btn-lg" id="shipping-submit" v-on:click.prevent="submitForm()"><i class="icon-shipping-truck"></i> Kostenpflichtig bestellen</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
         <!-- End Cart section -->
 
     </div>
@@ -70,6 +144,11 @@
       return {
         cart: {},
         loading: true,
+        user: {
+          variantDelivery: false,
+          delivery: {},
+        },
+        showErrorMessage: false,
       };
     },
     beforeCreate() {
@@ -124,10 +203,25 @@
         }
         this.$store.commit('initial', amount);
       },
+      submitForm() {
+        this.$validator.validateAll().then((result) => {
+          if (result) {
+            this.showErrorMessage = false;
+            // eslint-disable-next-line
+            console.log(this.user);
+          } else {
+            this.showErrorMessage = true;
+          }
+        });
+        return false;
+      },
     },
     computed: {
       cartKey() {
         return this.$localStorage.get('cartKey');
+      },
+      variantDeliveryAddressNeeded() {
+        return (this.user.variantDelivery === true);
       },
     },
   };

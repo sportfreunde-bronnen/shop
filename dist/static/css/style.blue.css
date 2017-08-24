@@ -1534,14 +1534,11 @@ section.cart .total-price h3 {
 section.shipping .form-holder div[class*="col-"] {
   margin-bottom: 25px;
 }
-section.shipping .form-holder .shipping-alternative {
-  display: none;
-}
 section.shipping .form-holder .shipping-main h3 {
   margin-top: 0;
 }
 section.shipping .form-holder h3 {
-  margin-top: 70px;
+  margin-top: 35px;
   margin-bottom: 20px;
 }
 section.shipping .form-holder input {
