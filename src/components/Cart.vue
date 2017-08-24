@@ -26,6 +26,21 @@
 
                     <div class="cart-body">
                         <cart-item v-on:productDeleted="productDeleted" v-for="item in cart.items" :key="item.id" v-bind:data="item" ref="cartItem"></cart-item>
+
+                        <div class="cart-item">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <div class="product-overview clearfix">
+                                        <h3>Versandkostenpauschale</h3>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-2">
+                                    <h3>6.00 €</h3>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -192,7 +207,8 @@
         for (let item of this.cart.items) {
           totalAmount += (item.price * item.amount);
         }
-        // eslint-disable-next-line
+        // Shipping costs
+        totalAmount += 6;
         return totalAmount.toFixed(2);
       },
       calculateItemCount() {
