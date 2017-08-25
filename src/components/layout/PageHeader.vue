@@ -7,8 +7,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Sportfreunde Bronnen 1949 e.V.</a>
-                    </router-link>
+                    <router-link :to="{ name: 'index' }" class="navbar-brand">Sportfreunde Bronnen 1949 e.V.</router-link>
                     <div class="navbar-buttons">
                         <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i></button>
                     </div>
@@ -21,7 +20,9 @@
                         <li>
                             <router-link :to="{ name: 'shoppingcart' }" class="cart">
                                 <i class="icon-cart-1"></i>
-                                <span class="items">{{ cartCount }}</span>
+                                <transition name="fade">
+                                    <span class="items">{{ cartCount }}</span>
+                                </transition>
                             </router-link>
                         </li>
                     </ul>

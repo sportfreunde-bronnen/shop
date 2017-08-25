@@ -151,8 +151,8 @@
                         <h3>Bezahlung/Versand</h3>
                         <div class="row">
                             <div class="col-xs-12">
-                                Die Bezahlung erfolgt per Vorkasse. Hierzu erhalten Sie im Anschluss an Ihre eine E-Mail mit der Kontoverbindung. Da jedes Produkt individuell für Sie
-                                gefertigt wird, beträgt die Lieferzeit aktuell <b>vier Wochen</b>.
+                                Die Bezahlung erfolgt per Vorkasse. Hierzu erhalten Sie im Anschluss an Ihre Bestellung eine E-Mail mit der Kontoverbindung. Da jedes Produkt individuell für Sie
+                                hergestellt wird, beträgt die Lieferzeit aktuell <b>vier Wochen</b>.
                             </div>
                         </div>
                     </div>
