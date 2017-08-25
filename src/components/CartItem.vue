@@ -4,8 +4,8 @@
             <div class="col-xs-6">
                 <div class="product-overview clearfix">
                     <div class="product-img pull-left">
-                        <img v-if="data.product.images.length > 0" :src="data.product.images[0].name" alt="t-shirt" class="img-responsive">
-                        <h3 v-if="data.product.images.length == 0">Kein Bild</h3>
+                        <img v-if="imageExists" :src="data.product.images[0].name" alt="t-shirt" class="img-responsive">
+                        <img v-if="!imageExists" :src="'//dummyimage.com/200x227/fff/000.png&text=Bild+folgt'" alt="t-shirt" class="img-responsive">
                     </div>
                     <div class="product-details pull-left">
                         <h3>{{ data.product.name }}</h3>
@@ -53,6 +53,9 @@
       computed: {
         totalPrice() {
           return (this.data.price * this.data.amount).toFixed(2);
+        },
+        imageExists() {
+          return (this.data.product.images.length > 0);
         },
       },
       methods: {

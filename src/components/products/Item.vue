@@ -3,7 +3,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 product">
-                    <img v-if="hasImages()" :src="data.images[0].name" alt="t-shirt" class="img-responsive">
+                    <img v-if="hasImages()" :src="data.images[0].name" alt="t-shirt" class="img-responsive img-rounded">
+                    <img v-if="!hasImages()" :src="'//dummyimage.com/600x681/fff/000.png&text=Bild+folgt'" class="img-responsive img-rounded">
                 </div>
                 <div class="col-sm-8 info">
                     <div class="info-wrapper">
@@ -27,8 +28,7 @@
                             </li>
                         </ul>
                     </div>
-                    <a v-if="!loading" v-on:click.prevent="addToCart" class="add-to-cart btn btn-unique">In den Warenkorb <i class="icon-cart-1"></i></a>
-                    <a v-if="loading" href="#" class="add-to-cart btn btn-unique">Einen Moment bitte.. <i class="icon-cart-1"></i></a>
+                    <a v-on:click.prevent="addToCart" class="add-to-cart btn btn-unique" v-bind:class="{ successfullyAddedToCart: this.successfullyAdded }">{{ addToBasketButtonValue }} <i v-if="!this.successfullyAdded" class="icon-cart-1"></i><i v-if="this.successfullyAdded" class="icon-like"></i></a>
                 </div>
             </div>
         </div>
@@ -54,6 +54,7 @@
         basePrice: this.data.basePrice,
         loading: false,
         variantError: false,
+        successfullyAdded: false,
       };
     },
     props: {
@@ -86,6 +87,12 @@
           this.price = this.variant.price;
         }
       },
+      resetSuccessfullyAdded() {
+        const self = this;
+        setTimeout(() => {
+          self.successfullyAdded = false;
+        }, 2000);
+      },
       addToCart() {
         if (this.hasVariants()) {
           if (!this.isVariantSelected()) {
@@ -106,6 +113,8 @@
         this.$http.post(`/api/cart/${this.cartKey}`, postData).then((response) => {
           this.loading = false;
           this.$store.commit('increment', this.amount);
+          this.successfullyAdded = true;
+          this.resetSuccessfullyAdded();
         }, (response) => {
           // eslint-disable-next-line
           console.log(response);
@@ -122,6 +131,12 @@
       },
       cartKey() {
         return this.$localStorage.get('cartKey');
+      },
+      addToBasketButtonValue() {
+        if (this.loading) {
+          return 'Bitte warten';
+        }
+        return (this.successfullyAdded ? 'Erfolgreich. Danke!' : 'In den Warenkorb');
       },
     },
   };

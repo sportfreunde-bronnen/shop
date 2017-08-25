@@ -66,16 +66,21 @@ nav.navbar ul.dropdown-menu li {
   letter-spacing: 0.1em;
 }
 nav.navbar a.navbar-brand {
-  transform: translateY(-25px);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-li.sfb {
-  font-size: 1.5em;
+@media (max-width: 520px) {
+  nav.navbar a.navbar-brand {
+    font-size: 12px;
+  }
 }
 
-@media (max-width: 415px) {
-  li.sfb {
-    font-size: 15px;
+@media (max-width: 375px) {
+  nav.navbar a.navbar-brand {
+      font-size: 10px;
   }
 }
 
@@ -2255,9 +2260,6 @@ a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-.img-rounded {
-  border-radius: 0;
-}
 hr {
   margin-top: 23px;
   margin-bottom: 23px;
@@ -2400,6 +2402,13 @@ fieldset[disabled] .btn-transparent.active {
   letter-spacing: 0.1em;
   font-weight: 600;
 }
+
+.btn-unique.successfullyAddedToCart {
+  background-color: #449d44;
+  border: none;
+  color: #fff;
+}
+
 .btn-unique:hover,
 .btn-unique:focus,
 .btn-unique:active,
@@ -2436,6 +2445,7 @@ fieldset[disabled] .btn-unique.active {
   color: #2b90d9;
   background-color: #ffffff;
 }
+
 .btn-unique:hover,
 .btn-unique:focus,
 .btn-unique:active,
@@ -2827,4 +2837,17 @@ a.list-group-item.active > .badge,
 
 .v-select.unsearchable input[type=search] {
   max-width: none ! important;
+}
+
+.alert.alert-danger {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+  color: #fff;
+  padding: 10px;
+}
+
+.alert.alert-success {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  color: #fff;
 }

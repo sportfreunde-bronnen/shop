@@ -237,6 +237,7 @@
       calculateItemCount() {
         let amount = 0;
         if (!this.hasItems()) {
+          this.$store.commit('initial', 0);
           return;
         }
         // eslint-disable-next-line
