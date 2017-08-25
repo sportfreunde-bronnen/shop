@@ -1,5 +1,6 @@
 <template>
     <div class="cart-page-holder">
+
         <!-- Hero section -->
         <section class="hero">
             <div class="container">
@@ -8,7 +9,7 @@
         </section>
         <!-- End Hero section -->
 
-        <section style="padding-top: 50px; padding-bottom: 50px;" class="cart" v-if="this.loading">
+        <section style="padding-top: 50px; padding-bottom: 200px;" class="cart" v-if="this.loading && !this.cartCheckedOut">
             <div class="container">
                 <div class="text-center" v-if="loading">
                     <h3>Warenkorb wird geladen</h3>
@@ -16,8 +17,20 @@
             </div>
         </section>
 
+        <section style="padding-top: 0; padding-bottom: 200px;" class="cart" v-if="this.cartCheckedOut">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="alert alert-success">
+                            Vielen Dank für Ihre Bestellung. Für Details zur Lieferung und Bezahlung erhalten Sie in Kürze eine E-Mail. Ihre Sportfreunde!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Cart section -->
-        <section class="cart" v-if="this.hasItems()">
+        <section class="cart" v-if="this.hasItems() && !this.cartCheckedOut">
             <div class="container">
                 <div class="text-center" v-if="loading">
                     <h3>Produkte werden geladen. Bitte einen Moment Geduld.</h3>
@@ -69,7 +82,7 @@
             </div>
         </section>
 
-        <section class="shipping" v-if="this.hasItems()">
+        <section class="shipping" v-if="this.hasItems() && !this.cartCheckedOut">
 
             <div class="container">
 
@@ -135,10 +148,11 @@
 
                     <div class="payment-method">
                         <hr/>
-                        <h3>Bezahlung</h3>
+                        <h3>Bezahlung/Versand</h3>
                         <div class="row">
                             <div class="col-xs-12">
-                                Die Bezahlung erfolgt per Vorkasse. Hierzu erhalten Sie im Anschluss an Ihre eine E-Mail mit der Kontoverbindung.
+                                Die Bezahlung erfolgt per Vorkasse. Hierzu erhalten Sie im Anschluss an Ihre eine E-Mail mit der Kontoverbindung. Da jedes Produkt individuell für Sie
+                                gefertigt wird, beträgt die Lieferzeit aktuell <b>vier Wochen</b>.
                             </div>
                         </div>
                     </div>
@@ -172,6 +186,7 @@
           delivery: {},
         },
         showErrorMessage: false,
+        cartCheckedOut: false,
       };
     },
     beforeCreate() {
@@ -231,8 +246,18 @@
         this.$validator.validateAll().then((result) => {
           if (result) {
             this.showErrorMessage = false;
-            // eslint-disable-next-line
-            console.log(this.user);
+            this.$http.post(`/api/cart/checkout/${this.cartKey}`, this.user).then((response) => {
+              // eslint-disable-next-line
+              if (response.body.status === 0) {
+                this.$localStorage.set('cartKey', response.body.newCartKey);
+                this.cartCheckedOut = true;
+              }
+            }, (error) => {
+              if (error) {
+                // eslint-disable-next-line
+                console.log(error);
+              }
+            });
           } else {
             this.showErrorMessage = true;
           }
