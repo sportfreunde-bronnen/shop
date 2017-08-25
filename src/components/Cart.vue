@@ -33,7 +33,7 @@
         <section class="cart" v-if="this.hasItems() && !this.cartCheckedOut">
             <div class="container">
                 <div class="text-center" v-if="loading">
-                    <h3>Produkte werden geladen. Bitte einen Moment Geduld.</h3>
+                    <h3>Artikel werden geladen. Bitte einen Moment Geduld.</h3>
                 </div>
                 <div class="cart-holder" v-if="!loading">
                     <div class="cart-heading">
@@ -151,7 +151,7 @@
                         <h3>Bezahlung/Versand</h3>
                         <div class="row">
                             <div class="col-xs-12">
-                                Die Bezahlung erfolgt per Vorkasse. Hierzu erhalten Sie im Anschluss an Ihre Bestellung eine E-Mail mit der Kontoverbindung. Da jedes Produkt individuell für Sie
+                                Die Bezahlung erfolgt per Vorkasse. Hierzu erhalten Sie im Anschluss an Ihre Bestellung eine E-Mail mit der Kontoverbindung. Da jeder Artikel individuell für Sie
                                 hergestellt wird, beträgt die Lieferzeit aktuell <b>vier Wochen</b>.
                             </div>
                         </div>

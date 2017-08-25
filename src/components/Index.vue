@@ -19,10 +19,10 @@
     <!-- Intro Section -->
     <section class="intro">
       <div class="container text-center">
-        <h2 class="heading-center">Unsere Produkte</h2>
+        <h2 class="heading-center">Unsere Artikel</h2>
         <p class="lead">
           Im Folgenden erhalten Sie eine Auswahl der verfügbaren Vereinsartikel. Nach Auswahl der entsprechenden Größe (falls vorhanden)
-          genügt ein Klick auf "In den Warenkorb", um das Produkt Ihrem Warenkorb hinzuzufügen.
+          genügt ein Klick auf "In den Warenkorb", um den Artikel in Ihren Warenkorb zu legen.
         </p>
         <product-filter></product-filter>
       </div>

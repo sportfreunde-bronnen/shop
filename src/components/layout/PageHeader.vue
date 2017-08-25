@@ -15,7 +15,7 @@
                 <div id="navigation" class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li class="">
-                            <router-link :to="{ name: 'index' }">Produkte</router-link>
+                            <router-link :to="{ name: 'index' }">Artikel</router-link>
                         </li>
                         <li>
                             <router-link :to="{ name: 'shoppingcart' }" class="cart">

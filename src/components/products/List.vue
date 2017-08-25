@@ -3,7 +3,7 @@
     <div id="div-product-list">
         <transition name="fade">
             <div class="text-center" v-if="loading" key="loading">
-                <h3>Produkte werden geladen. Bitte einen Moment Geduld.</h3>
+                <h3>Artikel werden geladen. Bitte einen Moment Geduld.</h3>
             </div>
             <div v-if="!loading" id="product-list" key="list">
                 <product v-for="product in products" :key="product.id" v-bind:data="product"></product>
