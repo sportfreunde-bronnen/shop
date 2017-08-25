@@ -12,9 +12,11 @@
                             {{ data.description }}
                         </p>
 
-                        <ul class="product-info list-unstyled">
+                        <div class="alert alert-danger col-xs-12 col-sm-6" v-if="this.variantError">Bitte wähle eine Größe aus.</div>
 
-                            <li class="size" v-if="hasVariants()">
+                        <ul class="product-info list-unstyled has-error">
+
+                            <li class="size has-error" v-if="hasVariants()">
                                 <variant v-bind:variants="data.variants" v-on:variantChanged="variantHasChanged"></variant>
                             </li>
                             <li class="amount">
@@ -51,6 +53,7 @@
         variant: null,
         basePrice: this.data.basePrice,
         loading: false,
+        variantError: false,
       };
     },
     props: {
@@ -63,10 +66,14 @@
       hasVariants() {
         return (this.data.variants.length > 1);
       },
+      isVariantSelected() {
+        return (this.hasVariants() && this.variant !== null);
+      },
       variantHasChanged(variant) {
         // eslint-disable-next-line
         this.variant = variant;
         this.calculatePrice();
+        this.variantError = false;
       },
       amountHasChanged(amount) {
         this.amount = amount;
@@ -80,6 +87,13 @@
         }
       },
       addToCart() {
+        if (this.hasVariants()) {
+          if (!this.isVariantSelected()) {
+            this.variantError = true;
+            return;
+          }
+          this.variantError = false;
+        }
         // eslint-disable-next-line
         this.loading = true;
         const postData = {

@@ -8,6 +8,14 @@
         </section>
         <!-- End Hero section -->
 
+        <section style="padding-top: 50px; padding-bottom: 50px;" class="cart" v-if="this.loading">
+            <div class="container">
+                <div class="text-center" v-if="loading">
+                    <h3>Warenkorb wird geladen</h3>
+                </div>
+            </div>
+        </section>
+
         <!-- Cart section -->
         <section class="cart" v-if="this.hasItems()">
             <div class="container">
@@ -53,7 +61,7 @@
 
         </section>
 
-        <section v-if="!this.hasItems()">
+        <section v-if="!this.hasItems() && !this.loading">
             <div class="container">
                 <div class="col-xs-12">
                     Ihr Warenkorb ist leer.
@@ -136,8 +144,8 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-xs-12">
-                            <button type="submit" class="oder-now btn btn-unique btn-lg" id="shipping-submit" v-on:click.prevent="submitForm()"><i class="icon-shipping-truck"></i> Kostenpflichtig bestellen</button>
+                        <div class="col-xs-12 text-center">
+                            <button type="submit" class="oder-now btn btn-unique" id="shipping-submit" v-on:click.prevent="submitForm()"><i class="icon-shipping-truck"></i> Kostenpflichtig bestellen</button>
                         </div>
                     </div>
                 </div>

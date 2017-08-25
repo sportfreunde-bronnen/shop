@@ -15,11 +15,11 @@
                 </div>
                 <div id="navigation" class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="sfb">
+                        <li class="sfb hidden-xs">
                             <router-link :to="{ name: 'index' }">Sportfreunde Bronnen 1949 e.V.</router-link>
                         </li>
                         <li class="">
-                            <router-link :to="{ name: 'index' }">Startseite</router-link>
+                            <router-link :to="{ name: 'index' }">Produkte</router-link>
                         </li>
                         <li>
                             <router-link :to="{ name: 'shoppingcart' }" class="cart">

@@ -12,11 +12,14 @@
       <div class="copyrights">
         <div class="container">
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-xs-12 col-sm-6 text-center">
               <p>&copy; 2017 Sportfreunde Bronnen 1949 e.V.</p>
             </div>
-            <div class="col-sm-6 text-right">
-              Made with <3 in Laupheim
+            <div class="col-xs-12 col-sm-6 text-center">
+                <p>#nurdiesfb</p>
+            </div>
+            <div class="col-xs-12 text-center">
+              <a href="http://www.sf-bronnen.de/impressum.html">Impressum</a>
             </div>
           </div>
         </div>

@@ -73,6 +73,12 @@ li.sfb {
   font-size: 1.5em;
 }
 
+@media (max-width: 415px) {
+  li.sfb {
+    font-size: 15px;
+  }
+}
+
 /* Navbar Media Queries ========================================== */
 @media (max-width: 768px) {
   nav.navbar .navbar-right {
@@ -1670,7 +1676,6 @@ form .bootstrap-select button span {
 ========================================== */
 footer {
   background: #222222;
-  padding: 100px 0 0;
 }
 footer a,
 footer a:hover,
@@ -1797,14 +1802,14 @@ footer .site-links form button i {
 }
 footer .copyrights {
   background: #1a1a1a;
-  color: #555555;
+  color: #fff;
   padding: 25px 0;
+}
+footer .copyrights a {
+  color: #fff ! important;
 }
 footer .copyrights p {
   font-size: 1.1em;
-}
-footer .copyrights p a {
-  color: inherit;
 }
 footer .copyrights p a:hover {
   color: #2b90d9;
@@ -2439,7 +2444,7 @@ fieldset[disabled] .btn-unique.active {
   color: #ffffff;
 }
 .btn-unique.btn {
-  padding: 6px 40px;
+  padding: 6px 20px;
   font-size: 15px;
   line-height: 1.55;
   border-radius: 40px;
@@ -2818,4 +2823,8 @@ a.list-group-item.active > .badge,
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.v-select.unsearchable input[type=search] {
+  max-width: none ! important;
 }

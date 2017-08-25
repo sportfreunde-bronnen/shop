@@ -1,6 +1,6 @@
 <template>
     <div class="variant-selector">
-        <v-select :on-change="changeVariant" :options="variants"></v-select>
+        <v-select :on-change="changeVariant" :options="variants" :searchable="false" :placeholder="'Größe wählen'"></v-select>
     </div>
 </template>
 

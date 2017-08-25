@@ -30,7 +30,9 @@
         </div>
         <div class="row">
             <div class="col-xs-12 text-left">
-                <br/><a class="cursor-pointer" v-on:click.prevent="deleteFromCart">Artikel aus Warenkorb entfernen</a>
+                <br/>
+                <a class="cursor-pointer" v-on:click.prevent="deleteFromCart" v-if="!this.deletion">Artikel aus Warenkorb entfernen</a>
+                <a v-if="this.deletion">Artikel wird entfernt...</a>
                 <hr/>
             </div>
         </div>
@@ -43,6 +45,11 @@
       props: {
         data: {},
       },
+      data() {
+        return {
+          deletion: false,
+        };
+      },
       computed: {
         totalPrice() {
           return (this.data.price * this.data.amount).toFixed(2);
@@ -50,6 +57,7 @@
       },
       methods: {
         deleteFromCart() {
+          this.deletion = true;
           this.$emit('productDeleted', this.data);
         },
       },
