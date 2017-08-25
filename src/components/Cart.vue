@@ -159,7 +159,7 @@
 
                     <div class="row">
                         <div class="col-xs-12 text-center">
-                            <button type="submit" class="oder-now btn btn-unique" id="shipping-submit" v-on:click.prevent="submitForm()"><i class="icon-shipping-truck"></i> Kostenpflichtig bestellen</button>
+                            <button type="submit" class="oder-now btn btn-unique" id="shipping-submit" v-on:click.prevent="submitForm()"><i class="icon-shipping-truck"></i> {{ this.checkoutButtonText }}</button>
                         </div>
                     </div>
                 </div>
@@ -187,6 +187,7 @@
         },
         showErrorMessage: false,
         cartCheckedOut: false,
+        checkoutLoading: false,
       };
     },
     beforeCreate() {
@@ -247,27 +248,33 @@
         this.$store.commit('initial', amount);
       },
       submitForm() {
-        this.$validator.validateAll().then((result) => {
-          if (result) {
-            this.showErrorMessage = false;
-            this.$http.post(`/api/cart/checkout/${this.cartKey}`, this.user).then((response) => {
-              // eslint-disable-next-line
-              if (response.body.status === 0) {
-                this.$localStorage.set('cartKey', response.body.newCartKey);
-                this.cartCheckedOut = true;
-                this.$store.commit('initial', 0);
-              }
-            }, (error) => {
-              if (error) {
+        if (!this.checkoutLoading) {
+          this.$validator.validateAll().then((result) => {
+            if (result) {
+              this.checkoutLoading = true;
+              this.showErrorMessage = false;
+              this.$http.post(`/api/cart/checkout/${this.cartKey}`, this.user).then((response) => {
                 // eslint-disable-next-line
-                console.log(error);
-              }
-            });
-          } else {
-            this.showErrorMessage = true;
-          }
-        });
-        return false;
+                if (response.body.status === 0) {
+                  this.$localStorage.set('cartKey', response.body.newCartKey);
+                  this.cartCheckedOut = true;
+                  this.$store.commit('initial', 0);
+                  this.checkoutLoading = false;
+                }
+              }, (error) => {
+                if (error) {
+                  // eslint-disable-next-line
+                  console.log(error);
+                  this.checkoutLoading = false;
+                }
+              });
+            } else {
+              this.showErrorMessage = true;
+            }
+          });
+          return false;
+        }
+        return true;
       },
     },
     computed: {
@@ -276,6 +283,9 @@
       },
       variantDeliveryAddressNeeded() {
         return (this.user.variantDelivery === true);
+      },
+      checkoutButtonText() {
+        return (this.checkoutLoading) ? 'Bitte warten' : 'Kostenpflichtig bestellen';
       },
     },
   };
