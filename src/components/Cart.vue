@@ -236,6 +236,9 @@
       },
       calculateItemCount() {
         let amount = 0;
+        if (!this.hasItems()) {
+          return;
+        }
         // eslint-disable-next-line
         for (let item of this.cart.items) {
           amount += parseInt(item.amount, 10);
