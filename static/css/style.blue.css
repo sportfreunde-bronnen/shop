@@ -85,7 +85,7 @@ nav.navbar a.navbar-brand {
 }
 
 /* Navbar Media Queries ========================================== */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   nav.navbar .navbar-right {
     padding: 0 15px;
   }
@@ -2850,4 +2850,21 @@ a.list-group-item.active > .badge,
   background-color: #5cb85c;
   border-color: #4cae4c;
   color: #fff;
+}
+
+div#app {
+  padding-top: 120px;
+}
+
+nav.navbar {
+  margin-top: 40px;
+}
+
+@media (max-width: 767px) {
+  div#app {
+    padding-top: 80px;
+  }
+  nav.navbar {
+    margin-top: 0;
+  }
 }

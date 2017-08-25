@@ -1,5 +1,5 @@
 <template>
-    <div class="cart-page-holder">
+    <div class="cart-page-holder subpage">
 
         <!-- Hero section -->
         <section class="hero">

@@ -4,7 +4,7 @@
 
         <!-- End Top Bar -->
 
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Sportfreunde Bronnen 1949 e.V.</a>

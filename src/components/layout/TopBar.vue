@@ -1,5 +1,5 @@
 <template>
-    <div class="top-bar hidden-sm hidden-xs">
+    <div class="top-bar hidden-xs navbar-fixed-top">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 text-left">
