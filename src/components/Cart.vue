@@ -251,6 +251,7 @@
               if (response.body.status === 0) {
                 this.$localStorage.set('cartKey', response.body.newCartKey);
                 this.cartCheckedOut = true;
+                this.$store.commit('initial', 0);
               }
             }, (error) => {
               if (error) {
