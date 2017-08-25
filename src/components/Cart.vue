@@ -219,7 +219,7 @@
         });
       },
       hasItems() {
-        if (this.cart.items === undefined) {
+        if (this.cart.items === undefined || this.cart.items === null) {
           return false;
         }
         return (this.cart.items.length > 0);
