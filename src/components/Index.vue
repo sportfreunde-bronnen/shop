@@ -31,25 +31,6 @@
 
     <product-list></product-list>
 
-    <!-- Services Section -->
-    <section class="services">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="service">
-              <div class="icon">
-                <i class="icon-prev"></i>
-              </div>
-              <div class="text">
-                <h4>#nurdiesfb</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Services Section -->
-
     <!-- Contact Section -->
     <section class="contact">
       <div class="container text-center">
