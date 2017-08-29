@@ -34,6 +34,7 @@
     <!-- Contact Section -->
     <section class="contact">
       <div class="container text-center">
+        <hr/>
         <h2 class="heading-center">Kontaktmöglichkeiten</h2>
         <p class="lead">
           Bei Fragen zum Shop, Wünschen nach neuen Artikeln und allen weiteren Anfragen nutzen Sie bitte
