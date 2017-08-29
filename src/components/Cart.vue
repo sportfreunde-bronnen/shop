@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="alert alert-success">
-                            Vielen Dank für Ihre Bestellung. Für Details zur Lieferung und Bezahlung erhalten Sie in Kürze eine E-Mail. Ihre Sportfreunde!
+                            Vielen Dank für Ihre Bestellung. Sie erhalten in Kürze eine Bestellbestätigung per E-Mail. Ihre Sportfreunde!
                         </div>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                                 Wir ziehen den oben angezeigten Betrag direkt von Ihrem Konto ein. Hierfür genügt uns die Angabe Ihrer IBAN, die wir selbstverständlich absolut vertraulich behandeln werden.
                             </div>
                             <div class="col-xs-12 col-md-6" v-bind:class="{ 'has-error': hasIbanError }">
-                                <div v-if="this.hasIbanError" class="alert alert-danger">Das ist keine gültige IBAN. Vertippt?npm</div>
+                                <div v-if="this.hasIbanError" class="alert alert-danger">Das ist keine gültige IBAN. Vertippt?</div>
                                 <input type="text" name="iban" class="form-control" placeholder="Ihre IBAN" v-model="user.iban" required="required" aria-required="true">
                             </div>
                         </div>
