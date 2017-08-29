@@ -151,8 +151,21 @@
                         <h3>Bezahlung/Versand</h3>
                         <div class="row">
                             <div class="col-xs-12">
-                                Die Bezahlung erfolgt per Vorkasse. Hierzu erhalten Sie im Anschluss an Ihre Bestellung eine E-Mail mit der Kontoverbindung. Da jeder Artikel individuell für Sie
-                                hergestellt wird, beträgt die Lieferzeit aktuell <b>vier Wochen</b>.
+                                Wir ziehen den oben angezeigten Betrag direkt von Ihrem Konto ein. Hierfür genügt uns die Angabe Ihrer IBAN, die wir selbstverständlich absolut vertraulich behandeln werden.
+                            </div>
+                            <div class="col-xs-12 col-md-6" v-bind:class="{ 'has-error': hasIbanError }">
+                                <div v-if="this.hasIbanError" class="alert alert-danger">Das ist keine gültige IBAN. Vertippt?npm</div>
+                                <input type="text" name="iban" class="form-control" placeholder="Ihre IBAN" v-model="user.iban" required="required" aria-required="true">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-method">
+                        <hr/>
+                        <h3>Versand/Lieferzeit</h3>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                Da jeder Artikel individuell für Sie hergestellt wird, beträgt die Lieferzeit aktuell <b>vier Wochen</b>.
                             </div>
                         </div>
                     </div>
@@ -172,6 +185,7 @@
 </template>
 
 <script>
+  import iban from 'iban';
   import CartItem from './CartItem';
 
   export default {
@@ -184,10 +198,12 @@
         user: {
           variantDelivery: false,
           delivery: {},
+          iban: '',
         },
         showErrorMessage: false,
         cartCheckedOut: false,
         checkoutLoading: false,
+        hasIbanError: false,
       };
     },
     beforeCreate() {
@@ -251,6 +267,13 @@
         if (!this.checkoutLoading) {
           this.$validator.validateAll().then((result) => {
             if (result) {
+              if (!iban.isValid(this.user.iban)) {
+                // eslint-disable-next-line
+                console.log("IBAN INVALID!!");
+                this.hasIbanError = true;
+                return false;
+              }
+              this.hasIbanError = false;
               this.checkoutLoading = true;
               this.showErrorMessage = false;
               this.$http.post(`/api/cart/checkout/${this.cartKey}`, this.user).then((response) => {
@@ -260,17 +283,23 @@
                   this.cartCheckedOut = true;
                   this.$store.commit('initial', 0);
                   this.checkoutLoading = false;
+                  return true;
                 }
+                return false;
               }, (error) => {
                 if (error) {
                   // eslint-disable-next-line
                   console.log(error);
                   this.checkoutLoading = false;
+                  return false;
                 }
+                return false;
               });
             } else {
               this.showErrorMessage = true;
+              return false;
             }
+            return false;
           });
           return false;
         }
