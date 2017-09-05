@@ -56,6 +56,13 @@
         this.loading = false;
       });
     },
+    watch: {
+      // eslint-disable-next-line
+      $route: (to, from) => {
+        // eslint-disable-next-line
+        $('.navbar-toggle').click();
+      },
+    },
   };
 </script>
 
