@@ -160,7 +160,7 @@
                         </div>
                     </div>
 
-                    <div class="payment-method">
+                    <div class="delivery">
                         <hr/>
                         <h3>Versand/Lieferzeit</h3>
                         <div class="row">
@@ -268,8 +268,10 @@
           this.$validator.validateAll().then((result) => {
             if (result) {
               if (!iban.isValid(this.user.iban)) {
-                // eslint-disable-next-line
-                console.log("IBAN INVALID!!");
+                this.$scrollTo('div.payment-method', 500, {
+                  offset: -150,
+                  easing: 'ease-in',
+                });
                 this.hasIbanError = true;
                 return false;
               }
@@ -297,6 +299,10 @@
               });
             } else {
               this.showErrorMessage = true;
+              this.$scrollTo('div.shipping-main', 500, {
+                offset: -150,
+                easing: 'ease-in',
+              });
               return false;
             }
             return false;

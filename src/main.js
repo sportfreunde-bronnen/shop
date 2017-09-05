@@ -5,6 +5,7 @@ import VueResource from 'vue-resource';
 import VueLocalStorage from 'vue-localstorage';
 import Vuex from 'vuex';
 import VeeValidate from 'vee-validate';
+import VueScrollTo from 'vue-scrollto';
 import App from './App';
 import router from './router';
 
@@ -16,6 +17,7 @@ Vue.use(VueLocalStorage);
 Vue.use(VeeValidate, {
   initial: true,
 });
+Vue.use(VueScrollTo);
 
 Vue.http.interceptors.push((request, next) => {
   request.headers.set('Content-Type', 'application/json');
