@@ -21,6 +21,12 @@
             <div class="col-xs-12 text-center">
               <a href="http://www.sf-bronnen.de/impressum.html">Impressum</a>
             </div>
+            <div class="col-xs-12 text-center">
+              <hr/>
+              <small>
+                made with <3, <a href="https://vuejs.org/">vue.js</a>, <a href="https://www.slimframework.com/docs/">slim</a> and <a href="https://getbootstrap.com">bootstrap</a> - feel free to <b><a href="https://github.com/sportfreunde-bronnen">contribute</a></b>
+              </small>
+            </div>
           </div>
         </div>
       </div>
