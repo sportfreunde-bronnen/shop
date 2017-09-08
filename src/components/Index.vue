@@ -21,8 +21,8 @@
       <div class="container text-center">
         <h2 class="heading-center">Unsere Artikel</h2>
         <p class="lead">
-          Im Folgenden erhalten Sie eine Auswahl der verfügbaren Vereinsartikel. Nach Auswahl der entsprechenden Größe (falls vorhanden)
-          genügt ein Klick auf "In den Warenkorb", um den Artikel in Ihren Warenkorb zu legen.
+          Im Folgenden erhälst Du eine Auswahl der verfügbaren Vereinsartikel. Nach Auswahl der entsprechenden Größe (falls vorhanden)
+          genügt ein Klick auf "In den Warenkorb", um den Artikel in Deinen Warenkorb zu legen.
         </p>
         <product-filter></product-filter>
       </div>
@@ -37,7 +37,7 @@
         <hr/>
         <h2 class="heading-center">Kontaktmöglichkeiten</h2>
         <p class="lead">
-          Bei Fragen zum Shop, Wünschen nach neuen Artikeln und allen weiteren Anfragen nutzen Sie bitte
+          Bei Fragen zum Shop, Wünschen nach neuen Artikeln und allen weiteren Anfragen nutze bitte
           die E-Mail Adresse <strong>shop@sf-bronnen.de</strong>.
         </p>
       </div>

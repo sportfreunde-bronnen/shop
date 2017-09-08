@@ -31,6 +31,7 @@
                     <a v-on:click.prevent="addToCart" class="add-to-cart btn btn-unique" v-bind:class="{ successfullyAddedToCart: this.successfullyAdded }">{{ addToBasketButtonValue }} <i v-if="!this.successfullyAdded" class="icon-cart-1"></i><i v-if="this.successfullyAdded" class="icon-like"></i></a>
                 </div>
             </div>
+            <hr/>
         </div>
     </section>
 </template>

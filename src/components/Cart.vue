@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="alert alert-success">
-                            Vielen Dank für Ihre Bestellung. Sie erhalten in Kürze eine Bestellbestätigung per E-Mail. Ihre Sportfreunde!
+                            Vielen Dank für Deine Bestellung. Du erhälst in Kürze eine Bestellbestätigung per E-Mail.
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                         <h3>Bezahlung/Versand</h3>
                         <div class="row">
                             <div class="col-xs-12">
-                                Wir ziehen den oben angezeigten Betrag direkt von Ihrem Konto ein. Hierfür genügt uns die Angabe Ihrer IBAN, die wir selbstverständlich absolut vertraulich behandeln werden.
+                                Wir ziehen den oben angezeigten Betrag direkt von Deinem Konto ein. Hierfür genügt uns die Angabe Deiner IBAN, die wir selbstverständlich <b>absolut vertraulich</b> behandeln werden.
                             </div>
                             <div class="col-xs-12 col-md-6" v-bind:class="{ 'has-error': hasIbanError }">
                                 <div v-if="this.hasIbanError" class="alert alert-danger">Das ist keine gültige IBAN. Vertippt?</div>
@@ -165,7 +165,7 @@
                         <h3>Versand/Lieferzeit</h3>
                         <div class="row">
                             <div class="col-xs-12">
-                                Da jeder Artikel individuell für Sie hergestellt wird, beträgt die Lieferzeit aktuell <b>vier Wochen</b>.
+                                Da jeder Artikel individuell für Dich hergestellt wird, beträgt die Lieferzeit aktuell <b>ca. vier Wochen</b>.
                             </div>
                         </div>
                     </div>
