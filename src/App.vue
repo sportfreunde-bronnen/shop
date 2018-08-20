@@ -19,7 +19,8 @@
                 <p>#nurdiesfb</p>
             </div>
             <div class="col-xs-12 text-center">
-              <a href="http://www.sf-bronnen.de/impressum.html">Impressum</a>
+                <a href="https://sf-bronnen.de/home/impressum">Impressum</a> |
+                <a href="https://sf-bronnen.de/home/datenschutz">Datenschutzerklärung</a>
             </div>
             <div class="col-xs-12 text-center">
               <hr/>
