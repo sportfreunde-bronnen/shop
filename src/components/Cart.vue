@@ -153,7 +153,7 @@
                             <div class="col-xs-12">
                                 Wir ziehen den oben angezeigten Betrag direkt von Deinem Konto ein. Hierfür genügt uns die Angabe Deiner IBAN, die wir selbstverständlich <b>absolut vertraulich</b> behandeln werden.
                             </div>
-                            <div class="col-xs-12 col-md-6" v-bind:class="{ 'has-error': hasIbanError }">
+                            <div class="col-xs-12 col-md-6" v-bind:class="{ 'has-error': hasIbanError, 'has-success': !hasIbanError }">
                                 <div v-if="this.hasIbanError" class="alert alert-danger">Das ist keine gültige IBAN. Vertippt?</div>
                                 <input type="text" name="iban" class="form-control" placeholder="Ihre IBAN" v-model="user.iban" required="required" aria-required="true">
                             </div>
@@ -166,6 +166,24 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 Da jeder Artikel individuell für Dich hergestellt wird, beträgt die Lieferzeit aktuell <b>ca. vier Wochen</b>.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="legal">
+                        <hr/>
+                        <h3>Datenschutz</h3>
+                        <div class="row">
+                            <div class="col-xs-12" v-if="this.hasLegalError">
+                                <div class="alert alert-danger">
+                                    Bitte akzeptiere unseren Datenschutzhinweis.
+                                </div>
+                            </div>
+                            <div class="col-xs-12" v-bind:class="{ 'has-error': this.hasLegalError }">
+                                <input type="checkbox" id="legal-hint" name="legal-hint" v-model="user.legalHintAccepted">
+                                <label for="legal-hint">
+                                    Ich erkläre mich damit einverstanden, dass die Sportfreunde Bronnen 1949 e.V. meine Angaben für die Bearbeitung meiner Bestellung verwenden. Eine Weitergabe an Dritte findet nicht statt, es sei denn geltende Datenschutzvorschriften rechtfertigen eine Übertragung oder die Sportfreunde Bronnen 1949 e.V. sind dazu gesetzlich verpflichtet. Sie können Ihre erteilte Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Im Falle des Widerrufs werden Ihre Daten umgehend gelöscht. Ihre Daten werden ansonsten gelöscht, wenn wir Ihre Anfrage bearbeitet haben oder der Zweck der Speicherung entfallen ist. Sie können sich jederzeit über die zu Ihrer Person gespeicherten Daten informieren. Weitere Informationen zum Datenschutz finden Sie auch in der Datenschutzerklärung dieser Webseite.
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -185,6 +203,7 @@
 </template>
 
 <script>
+  /* eslint-disable */
   import iban from 'iban';
   import CartItem from './CartItem';
 
@@ -199,11 +218,13 @@
           variantDelivery: false,
           delivery: {},
           iban: '',
+          legalHintAccepted : false,
         },
         showErrorMessage: false,
         cartCheckedOut: false,
         checkoutLoading: false,
         hasIbanError: false,
+        hasLegalError: false,
       };
     },
     beforeCreate() {
@@ -274,6 +295,12 @@
                 });
                 this.hasIbanError = true;
                 return false;
+              } else {
+                this.hasIbanError = false;
+              }
+              if (this.user.legalHintAccepted === false) {
+                this.hasLegalError = true;
+                return false;
               }
               this.hasIbanError = false;
               this.checkoutLoading = true;
@@ -325,3 +352,13 @@
     },
   };
 </script>
+
+<style>
+    div.legal label {
+        font-size: 1.4rem ! important;
+    }
+
+    div.legal .has-error > label {
+        color: #d43f3a ! important;
+    }
+</style>

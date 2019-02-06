@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/components/layout/PageHeader.vue"],"names":[],"mappings":"AACA,8BACI,YACA,UAAY","file":"static/css/app.1361246839c3b180eb0fc94da8b27048.css","sourcesContent":["\nimg.sfb-logo[data-v-558cb7ab] {\n    height: 78px;\n    width: auto;\n}\n\n\n\n// WEBPACK FOOTER //\n// ./src/components/layout/PageHeader.vue"],"sourceRoot":""}
